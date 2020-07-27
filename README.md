@@ -34,6 +34,11 @@ $ python meeting-backgrounds.py remove --app msteams --bg bbc_joy_of_sets
 ```
 TIP: You can remove all collections by leaving out `--bg`.
 
+Open the folder containing downloaded backgrounds:
+```sh
+$ python meeting-backgrounds.py open --app msteams
+```
+
 ## Supported apps
 
 ### Microsoft Teams

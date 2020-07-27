@@ -3,6 +3,7 @@ import sys
 import json
 import urllib.request
 import platform
+import subprocess
 import argparse
 
 try:
@@ -85,6 +86,13 @@ def cli_download(args):
     print(f"{count} backgrounds downloaded.")
 
 
+def cli_open(args):
+    bg_dir = get_bg_dir(args.app)
+    if not os.path.exists(bg_dir):
+        print(f"Folder does not exist: {bg_dir}")
+        sys.exit(1)
+    open_folder(bg_dir)
+
 def cli_remove(args):
     count = 0
     for app_name in args.app:
@@ -113,6 +121,16 @@ def get_bg_dir(app_name: str) -> str:
 def get_bg_filename(bg_name: str, url: str) -> str:
     filename = f"{bg_name}_{os.path.basename(url)}"
     return filename
+
+
+def open_folder(path):
+    # https://stackoverflow.com/a/16204023
+    if platform.system() == "Windows":
+        os.startfile(path)
+    elif platform.system() == "Darwin":
+        subprocess.Popen(["open", path])
+    else:
+        subprocess.Popen(["xdg-open", path])
 
 
 def main(argv):
@@ -144,6 +162,15 @@ def main(argv):
         "--force",
         action="store_true",
         help="Download backgrounds even if already downloaded",
+    )
+
+    open_parser = subparsers.add_parser("open", help="Open meeting app folder with backgrounds")
+    open_parser.set_defaults(func=cli_open)
+    open_parser.add_argument(
+        "--app",
+        choices=list(apps.keys()),
+        required=True,
+        help="Meeting app for which to open its background images folder",
     )
 
     remove_parser = subparsers.add_parser(
