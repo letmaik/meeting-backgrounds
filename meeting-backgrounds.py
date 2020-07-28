@@ -80,7 +80,10 @@ def cli_download(args):
                 print(f"Skipping {url}, already downloaded")
                 continue
             print(f"Downloading {url}")
-            with urllib.request.urlopen(url) as r:
+            request = urllib.request.Request(url, headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0'
+            })
+            with urllib.request.urlopen(request) as r:
                 img = r.read()
             for path in target_paths:
                 print(f"Saving to {path}")

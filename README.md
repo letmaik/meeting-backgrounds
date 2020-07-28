@@ -51,6 +51,8 @@ Command Line | Title | Backgrounds
 `--bg dc` | [DC Comics](https://www.dccomics.com/blog/2020/04/01/dial-in-from-the-dc-universe-with-these-virtual-backgrounds) | 20
 `--bg fox_animation` | [FOX Animation Domination](https://www.fox.com/animation-domination/download-zoom-backgrounds/) | 10
 `--bg starwars` | [Star Wars](https://www.starwars.com/news/star-wars-backgrounds) | 32
+`--bg starbucks` | [Starbucks](https://stories.starbucks.com/stories/2020/you-can-still-work-from-starbucks-with-virtual-backgrounds/) | 12
+`--bg westelm` | [West Elm](https://blog.westelm.com/2020/03/18/download-these-video-conference-backgrounds-will-let-you-dial-in-from-your-dream-home/) | 34
 
 ## Supported apps
 

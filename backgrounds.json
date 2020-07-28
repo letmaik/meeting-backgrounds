@@ -199,5 +199,63 @@
             "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-18.jpg",
             "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-19.jpg"
         ]
+    },
+    "starbucks": {
+        "title": "Starbucks",
+        "url": "https://stories.starbucks.com/stories/2020/you-can-still-work-from-starbucks-with-virtual-backgrounds/",
+        "image_urls": [
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Community-Store-in-Jonesboro.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Flying-Books-George-Mason-University.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Fukuoka-Japan.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Community-Store-Mural-in-DC.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Olive-Way-Seattle.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Hacienda-Alsacia-in-Costa-Rica.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Hacienda-Alsacia-Visitor-Center.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Starbucks-Reserve-Roastery-Seattle.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Starbucks-Reserve-Roastery-Milan.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Starbucks-Reserve-Roastery-Chicago.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-Patio-on-Bainbridge-Island.jpg",
+            "https://stories.starbucks.com/uploads/2020/06/Starbucks-Virtual-Backgrounds-1912-Pike.jpg"
+        ]
+    },
+    "westelm": {
+        "title": "West Elm",
+        "url": "https://blog.westelm.com/2020/03/18/download-these-video-conference-backgrounds-will-let-you-dial-in-from-your-dream-home/",
+        "image_urls": [
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-sf-walk-up-63.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-New-York-Condo-95.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-alexandria-design-crew-04.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-dumbo-design-crew-crown-heights-apartment-15.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-elliott-clark-tour-3-082.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-oakbrook-design-crew-06.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/West-Elm-Nashville-Design-Crew-447.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-dumbo-design-crew-crown-heights-apartment-39.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-New-York-Condo-88.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/QD20SU0067.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/West-Elm-Providene-Design-Crew-Loft-252.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-west-hamptons-design-crew-17.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-lindsey-tobler-slc-55-1.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zosia-mamet-upstate2-195.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/WestElm_Hotham6452_Gemmola_LR.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-sf-walk-up-64.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/West-Elm-Palm-Springs-Modernism-Week-House-2019-066.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zoom-backgounds-2-24-scaled.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zoom-backgounds-2-09-scaled.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zoom-backgounds-2-11-1-scaled.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zoom-backgounds-2-26.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-dumbo-design-crew-crown-heights-apartment-37.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zoom-backgounds-2-15-scaled.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zoom-backgounds-2-12-1-scaled.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/midwest-malibu-cottage-kitchen-remodel-9.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/04/west-elm-eric-trine-kitchen.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-molly-bernard-071-1.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/04/west-elm-aimee-kirk-02.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/04/west-elm-meghan-inglis-12.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-zosia-mamet-upstate2-154.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/PL-small-space-SU20-reportage-064.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/04/west-elm-diego-olivero-07.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/04/west-elm-elliott-clark-tour-3-075.jpg",
+            "https://blog.westelm.com/wp-content/uploads/2020/03/west-elm-Scarsdale-Design-Crew%E2%80%93Port-Chester-19.jpg"
+        ]
     }
 }
