@@ -68,6 +68,16 @@ Command Line | Title | Backgrounds
   - After downloading backgrounds, Teams must be restarted.
   - On start-up, Teams generates thumbnails for new backgrounds which may take a while.
 
+### Zoom
+
+- Command line: `--app zoom`
+- Operating systems:
+  - ✔️ Windows
+  - ❌ macOS
+  - ❌ Linux
+- Gotchas:
+  - Zoom must not be running when downloading or removing backgrounds.
+
 ## Contributions
 
 If you like to help, consider one of the following contributions:

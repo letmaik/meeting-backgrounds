@@ -4,6 +4,7 @@ import json
 import urllib.request
 import platform
 import subprocess
+import sqlite3
 import argparse
 
 try:
@@ -70,13 +71,13 @@ def cli_download(args):
     for bg_name in args.bg:
         bg = backgrounds[bg_name]
         for url in bg["image_urls"]:
-            target_paths = []
+            target_paths = {}
             for app_name in args.app:
                 bg_dir = get_bg_dir(app_name)
                 filename = get_bg_filename(bg_name, url)
                 path = os.path.join(bg_dir, filename)
-                target_paths.append(path)
-            if not args.force and all(os.path.exists(path) for path in target_paths):
+                target_paths[app_name] = path
+            if not args.force and all(os.path.exists(path) for path in target_paths.values()):
                 print(f"Skipping {url}, already downloaded")
                 continue
             print(f"Downloading {url}")
@@ -85,10 +86,13 @@ def cli_download(args):
             })
             with urllib.request.urlopen(request) as r:
                 img = r.read()
-            for path in target_paths:
+            for app_name, path in target_paths.items():
                 print(f"Saving to {path}")
                 with open(path, "wb") as f:
                     f.write(img)
+                zoom_db_path = get_zoom_db_path(app_name)
+                if zoom_db_path is not None:
+                    update_zoom_db(zoom_db_path, path, action='add')
             count += 1
     print(f"{count} backgrounds downloaded.")
 
@@ -105,6 +109,7 @@ def cli_remove(args):
     count = 0
     for app_name in args.app:
         bg_dir = get_bg_dir(app_name)
+        zoom_db_path = get_zoom_db_path(app_name)
         for bg_name in args.bg:
             bg = backgrounds[bg_name]
             for url in bg["image_urls"]:
@@ -112,6 +117,8 @@ def cli_remove(args):
                 path = os.path.join(bg_dir, filename)
                 if os.path.exists(path):
                     print(f"Removing {path}")
+                    if zoom_db_path is not None:
+                        update_zoom_db(zoom_db_path, path, action='remove')
                     os.remove(path)
                     # Thumbs are automatically created by the meeting app.
                     path_thumb = get_bg_thumb_path(app_name, bg_name, url)
@@ -122,28 +129,15 @@ def cli_remove(args):
 
 
 def get_bg_dir(app_name: str) -> str:
-    if app_name in get_bg_dir.cache:
-        return get_bg_dir.cache[app_name]
     app = apps[app_name]
     bg_dir = app["bg_dir"].get(platform.system())
-    if bg_dir is None:
-        # If the platform is WSL, try the Windows version.
-        if (platform.system() == "Linux") and \
-           (os.environ.get("WSL_DISTRO_NAME") is not None):
-            print("No Linux app found, but this appears to be WSL, trying Windows version")
-            # Get the Windows environment variables that we need:
-            appdata = subprocess.check_output(["cmd.exe", "/C", "echo %APPDATA%"],
-                                              cwd="/mnt/c").decode("utf-8").strip()
-            appdata = subprocess.check_output(["wslpath", appdata]).decode("utf-8").strip()
-            os.environ["APPDATA"] = appdata
-            bg_dir = app["bg_dir"].get("Windows")
+    if bg_dir is None and is_wsl():
+        bg_dir = app["bg_dir"].get("Windows")
     if bg_dir is None:
         raise RuntimeError(f'Your operating system is not supported for "{app_name}".')
     bg_dir = os.path.expandvars(bg_dir)
-    get_bg_dir.cache[app_name] = bg_dir
     return bg_dir
 
-get_bg_dir.cache = {}
 
 def get_bg_filename(bg_name: str, url: str) -> str:
     filename = f"{bg_name}_{os.path.basename(url)}"
@@ -165,6 +159,39 @@ def get_bg_thumb_path(app_name: str, bg_name: str, url: str):
     return thumb_path
 
 
+def get_zoom_db_path(app_name):
+    app = apps[app_name]
+    db = app.get("zoom_db")
+    if db is None:
+        return None
+    db_path = db.get(platform.system())
+    if db_path is None and is_wsl():
+        db_path = db.get("Windows")
+    if db_path is None:
+        raise RuntimeError(f'Your operating system is not supported for "{app_name}".')
+    db_path = os.path.expandvars(db_path)
+    return db_path
+
+
+def update_zoom_db(zoom_db_path: str, bg_path: str, action: str):
+    conn = sqlite3.connect(zoom_db_path, isolation_level="EXCLUSIVE")
+    c = conn.cursor()
+    bg_path_norm = os.path.normpath(bg_path)
+    if is_wsl():
+        bg_path_norm = subprocess.check_output(["wslpath", "-w", bg_path_norm]).decode("utf-8").strip()
+    if action == "add":
+        filename = os.path.basename(bg_path)
+        stem, _ = os.path.splitext(filename)
+        c.execute("INSERT INTO zoom_conf_video_background_a (path, name, type, customIndex, thumbPath) "
+                  "VALUES (?, ?, 1, 100, '')", (bg_path_norm, stem))
+    elif action == "remove":
+        c.execute("DELETE FROM zoom_conf_video_background_a WHERE path == ?", (bg_path_norm,))
+    else:
+        assert False
+    conn.commit()
+    conn.close()
+
+
 def open_folder(path):
     # https://stackoverflow.com/a/16204023
     if platform.system() == "Windows":
@@ -175,10 +202,22 @@ def open_folder(path):
         try:
             subprocess.Popen(["xdg-open", path])
         except FileNotFoundError:
-            if os.environ.get("WSL_DISTRO_NAME") is None:
+            if "WSL_DISTRO_NAME" not in os.environ:
                 raise
             path = subprocess.check_output(["wslpath", "-w", path]).decode("utf-8").strip()
             subprocess.Popen(["explorer.exe", path])
+
+
+def is_wsl():
+    return platform.system() == "Linux" and "WSL_DISTRO_NAME" in os.environ
+
+
+def update_wsl_env_vars():
+    # Get the Windows environment variables that we need:
+    appdata = subprocess.check_output(["cmd.exe", "/C", "echo %APPDATA%"],
+                                       cwd="/mnt/c").decode("utf-8").strip()
+    appdata = subprocess.check_output(["wslpath", appdata]).decode("utf-8").strip()
+    os.environ["APPDATA"] = appdata
 
 
 def main(argv):
@@ -250,6 +289,10 @@ def main(argv):
     if not hasattr(args, "func"):
         parser.print_usage()
         sys.exit(0)
+
+    if is_wsl():
+        update_wsl_env_vars()
+
     args.func(args)
 
 
