@@ -1,8 +1,9 @@
 {
     "msteams": {
         "bg_dir": {
-            "Windows": "$APPDATA/Microsoft/Teams/Backgrounds/Uploads",
-            "Darwin": "/users/$USER/Library/Application Support/Microsoft/Teams/Backgrounds/Uploads"
-        }
+            "Windows": "${APPDATA}/Microsoft/Teams/Backgrounds/Uploads",
+            "Darwin": "/users/${USER}/Library/Application Support/Microsoft/Teams/Backgrounds/Uploads"
+        },
+        "bg_thumb_pattern": "${BG_DIR}/${STEM}_thumb.${EXT}"
     }
 }

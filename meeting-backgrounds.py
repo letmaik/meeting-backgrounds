@@ -105,6 +105,10 @@ def cli_remove(args):
                 if os.path.exists(path):
                     print(f"Removing {path}")
                     os.remove(path)
+                    # Thumbs are automatically created by the meeting app.
+                    path_thumb = get_bg_thumb_path(app_name, bg_name, url)
+                    if path_thumb is not None and os.path.exists(path_thumb):
+                        os.remove(path_thumb)
                     count += 1
     print(f"{count} backgrounds removed.")
 
@@ -122,6 +126,20 @@ def get_bg_filename(bg_name: str, url: str) -> str:
     filename = f"{bg_name}_{os.path.basename(url)}"
     return filename
 
+
+def get_bg_thumb_path(app_name: str, bg_name: str, url: str):
+    bg_dir = get_bg_dir(app_name)
+    filename = get_bg_filename(bg_name, url)
+    app = apps[app_name]
+    thumb_path = app.get('bg_path_pattern') # type: str
+    if thumb_path is None:
+        return None
+    thumb_path = thumb_path.replace('${BG_DIR}', bg_dir)
+    stem, ext = os.path.splitext(filename)
+    ext = ext[1:]
+    thumb_path = thumb_path.replace('${STEM}', stem)
+    thumb_path = thumb_path.replace('${EXT}', ext)
+    return thumb_path
 
 def open_folder(path):
     # https://stackoverflow.com/a/16204023
