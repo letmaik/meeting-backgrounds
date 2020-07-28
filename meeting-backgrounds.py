@@ -119,13 +119,28 @@ def cli_remove(args):
 
 
 def get_bg_dir(app_name: str) -> str:
+    if app_name in get_bg_dir.cache:
+        return get_bg_dir.cache[app_name]
     app = apps[app_name]
     bg_dir = app["bg_dir"].get(platform.system())
     if bg_dir is None:
+        # If the platform is WSL, try the Windows version.
+        if (platform.system() == "Linux") and \
+           (os.environ["WSL_DISTRO_NAME"] is not None):
+            print("No Linux app found, but this appears to be WSL, trying Windows version")
+            # Get the Windows environment variables that we need:
+            appdata = subprocess.check_output(["cmd.exe", "/C", "echo %APPDATA%"],
+                                              cwd="/mnt/c").decode("utf-8").strip()
+            appdata = subprocess.check_output(["wslpath", appdata]).decode("utf-8").strip()
+            os.environ["APPDATA"] = appdata
+            bg_dir = app["bg_dir"].get("Windows")
+    if bg_dir is None:
         raise RuntimeError(f'Your operating system is not supported for "{app_name}".')
     bg_dir = os.path.expandvars(bg_dir)
+    get_bg_dir.cache[app_name] = bg_dir
     return bg_dir
 
+get_bg_dir.cache = {}
 
 def get_bg_filename(bg_name: str, url: str) -> str:
     filename = f"{bg_name}_{os.path.basename(url)}"
