@@ -172,7 +172,7 @@ def open_folder(path):
         try:
             subprocess.Popen(["xdg-open", path])
         except FileNotFoundError:
-            if (os.environ["WSL_DISTRO_NAME"] is None):
+            if os.environ.get("WSL_DISTRO_NAME") is None:
                 raise
             path = subprocess.check_output(["wslpath", "-w", path]).decode("utf-8").strip()
             subprocess.Popen(["explorer.exe", path])
