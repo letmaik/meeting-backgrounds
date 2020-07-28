@@ -82,7 +82,7 @@ Command Line | Title | Backgrounds
 
 If you like to help, consider one of the following contributions:
 - Addition of more background collections (official sources from copyright holders only)
-- Support for more apps
+- Support for more apps or operating systems
 
 All of the above is easily possible by extending the [`apps.json`](apps.json) and [`backgrounds.json`](backgrounds.json) files.
 Your pull request is welcome! :)
