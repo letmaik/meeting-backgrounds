@@ -42,6 +42,8 @@ $ python meeting-backgrounds.py open --app msteams
 
 ## Background collections
 
+<!-- Re-generate with meeting-backgrounds.py list --markdown -->
+
 Command Line | Title | Backgrounds
 -------------|-------|------------
 `--bg bbc_joy_of_sets` | [BBC Archive - The joy of sets](https://www.bbc.co.uk/archive/empty_sets_collection/zfvy382) | 96
