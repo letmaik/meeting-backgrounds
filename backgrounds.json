@@ -100,5 +100,104 @@
             "http://teach.files.bbci.co.uk/archive/sets/2019_Doctor_Who_tardis_hi060213430.jpg",
             "http://teach.files.bbci.co.uk/archive/sets/2019_Doctor_Who_tardis_2_hi060213437.jpg"
         ]
+    },
+    "pixar": {
+        "title": "Pixar",
+        "url": "https://news.disney.com/pixar-video-backgrounds-available",
+        "image_urls": [
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_toystory_16x9_8461039f.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_incredibles2_16x9_149dbf8d.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_up_16x9_1f36fba7.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_ratatouille_16x9_635a16bd.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_brave_16x9_41b1e6e3.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_gooddino_16x9_c4e0dd5a.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_findingnemo_16x9_f74d315e.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_bugslife_16x9_d75b729e.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_monstersinc_16x9_9730df7f.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_cars3_16x9_8c10e252.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_insideout_16x9_cbaa0517.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_walle_16x9_3be8967c.jpeg",
+            "https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg"
+        ]
+    },
+    "dc": {
+        "title": "DC Comics",
+        "url": "https://www.dccomics.com/blog/2020/04/01/dial-in-from-the-dc-universe-with-these-virtual-backgrounds",
+        "image_urls": [
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Batcave01900_5e83e14930ce72.78598762.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Batcave02_5e83e1e71d25e9.40525198.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Batcave04_5e83e28631ce92.91501384.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_GothamCity01_5e83e343146ef2.30262508.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_GothamCity02_5e83e35b15d875.74414862.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_ArkhamAsylum_5e83e3bd006417.01018656.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_DailyPlanet_5e83e43a6437f5.65009305.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_DailyPlanet02_5e83e4520598e1.90970846.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_FortressOfSolitude_5e83e4d53b9139.20075179.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Fortress2_5e83e4e8c8de22.02612782.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_HallOfJustice01900_5e83e5759133c2.20291018.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_CentralCity_5e83e5d859c218.09559986.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_STARlabs_5e83e655ea9477.71526183.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Themyscira01_5e83e6eab5fb63.93535692.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Themyscira02_5e83e70118e3b6.57150762.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Atlantis_5e83e74c26bba2.53881026.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_GorillaCity900_5e83e7801c59d8.84184806.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_Apokolips_5e83e84133daa4.90479008.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_HallOfJustice02900_5e83e7ef718188.47560189.jpg",
+            "https://www.dccomics.com/sites/default/files/imce/2020/03-MAR/DC_BG_JusticeLeagueSatellite_5e83e86a3eeab1.22739717.jpg"
+        ]
+    },
+    "fox_animation": {
+        "title": "FOX Animation Domination",
+        "url": "https://www.fox.com/animation-domination/download-zoom-backgrounds/",
+        "image_urls": [
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_WFH_SIMP_REV%5B4%5D%5B1%5D.jpg",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_WFH_Backplates_03%5B2%5D%5B1%5D.jpg",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_BobsBurgers_Backplate_01.png",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_BobsBurgers_Backplate_02.png",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_FamilyGuy_Backplate_01.png",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_FamilyGuy_Backplate_02.png",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_Duncanville_Backplate_01.png",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_Duncanville_Backplate_02.png",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_BlessTheHarts_Backplate_01%20(1).png",
+            "https://assets.foxdcg.com/dpp-uploaded/images/articles/5e7b84f920127c00183665cc/ANIDOM_BlessTheHarts_Backplate_02.png"
+        ]
+    },
+    "starwars": {
+        "title": "Star Wars",
+        "url": "https://www.starwars.com/news/star-wars-backgrounds",
+        "image_urls": [
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-20-1.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-16.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-16.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-08.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-36-1.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-38.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-37.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-24.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-32.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-31.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-30.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-12-1.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-06.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-27.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-14.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-39.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-29.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-15.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-13.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-35.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-10.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-11.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-09.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-38-1.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-01.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-04.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-28.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-26.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-05.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-18.jpg",
+            "https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-19.jpg"
+        ]
     }
 }

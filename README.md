@@ -20,6 +20,7 @@ Title: BBC Archive - The joy of sets
 Website: https://www.bbc.co.uk/archive/empty_sets_collection/zfvy382
 Backgrounds: 96
 Downloaded: no
+...
 ```
 
 Download a background collection for your meeting app:
@@ -39,6 +40,16 @@ Open the folder containing downloaded backgrounds:
 $ python meeting-backgrounds.py open --app msteams
 ```
 
+## Background collections
+
+Command Line | Title | Backgrounds
+-------------|-------|------------
+`--bg bbc_joy_of_sets` | [BBC Archive - The joy of sets](https://www.bbc.co.uk/archive/empty_sets_collection/zfvy382) | 96
+`--bg pixar` | [Pixar](https://news.disney.com/pixar-video-backgrounds-available) | 13
+`--bg dc` | [DC Comics](https://www.dccomics.com/blog/2020/04/01/dial-in-from-the-dc-universe-with-these-virtual-backgrounds) | 20
+`--bg fox_animation` | [FOX Animation Domination](https://www.fox.com/animation-domination/download-zoom-backgrounds/) | 10
+`--bg starwars` | [Star Wars](https://www.starwars.com/news/star-wars-backgrounds) | 32
+
 ## Supported apps
 
 ### Microsoft Teams
@@ -50,11 +61,12 @@ $ python meeting-backgrounds.py open --app msteams
   - ❌ Linux ([backgrounds not supported yet](https://microsoftteams.uservoice.com/forums/555103-public/suggestions/40247473-background-effects-teams-for-linux))
 - Gotchas:
   - After downloading backgrounds, Teams must be restarted.
+  - On start-up, Teams generates thumbnails for new backgrounds which may take a while.
 
 ## Contributions
 
 If you like to help, consider one of the following contributions:
-- Addition of more background collections
+- Addition of more background collections (official sources from copyright holders only)
 - Support for more apps
 
 All of the above is easily possible by extending the [`apps.json`](apps.json) and [`backgrounds.json`](backgrounds.json) files.

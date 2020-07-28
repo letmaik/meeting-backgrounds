@@ -33,28 +33,32 @@ with open(os.path.join(this_dir, "backgrounds.json")) as f:
 
 def cli_list(args):
     print()
+    if args.markdown:
+        print("Command Line | Title | Backgrounds")
+        print("-------------|-------|------------")
     for bg_name, bg_details in backgrounds.items():
-        print(f"Name: {bg_name}")
-        print(f'Title: {bg_details["title"]}')
-        print(f'Website: {bg_details["url"]}')
-        print(f'Backgrounds: {len(bg_details["image_urls"])}')
-
-        downloaded = []
-        for app_name in apps:
-            bg_dir = get_bg_dir(app_name)
-            paths = (
-                os.path.join(bg_dir, get_bg_filename(bg_name, url))
-                for url in bg_details["image_urls"]
-            )
-            if any(os.path.exists(path) for path in paths):
-                downloaded.append(app_name)
-                continue
-        if downloaded:
-            print(f'Downloaded: yes ({", ".join(downloaded)})')
+        if args.markdown:
+            print(f'`--bg {bg_name}` | [{bg_details["title"]}]({bg_details["url"]}) | {len(bg_details["image_urls"])}')
         else:
-            print("Downloaded: no")
-
-        print()
+            print(f"Name: {bg_name}")
+            print(f'Title: {bg_details["title"]}')
+            print(f'Website: {bg_details["url"]}')
+            print(f'Backgrounds: {len(bg_details["image_urls"])}')
+            downloaded = []
+            for app_name in apps:
+                bg_dir = get_bg_dir(app_name)
+                paths = (
+                    os.path.join(bg_dir, get_bg_filename(bg_name, url))
+                    for url in bg_details["image_urls"]
+                )
+                if any(os.path.exists(path) for path in paths):
+                    downloaded.append(app_name)
+                    continue
+            if downloaded:
+                print(f'Downloaded: yes ({", ".join(downloaded)})')
+            else:
+                print("Downloaded: no")
+            print()
 
 
 def cli_download(args):
@@ -159,6 +163,10 @@ def main(argv):
 
     list_parser = subparsers.add_parser(
         "list", help="List available/downloaded backgrounds"
+    )
+    list_parser.add_argument(
+        "--markdown",
+        action='store_true'
     )
     list_parser.set_defaults(func=cli_list)
 
