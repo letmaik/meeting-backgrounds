@@ -11,7 +11,7 @@ git clone https://github.com/letmaik/meeting-backgrounds
 cd meeting-backgrounds
 ```
 
-List available background collections:
+#### List available background collections
 ```sh
 $ python meeting-backgrounds.py list
 
@@ -23,19 +23,19 @@ Downloaded: no
 ...
 ```
 
-Download a background collection for your meeting app:
+#### Download a background collection for your meeting app
 ```sh
 $ python meeting-backgrounds.py download --app msteams --bg bbc_joy_of_sets
 ```
 TIP: You can download all collections by leaving out `--bg`.
 
-Remove downloaded backgrounds again:
+#### Remove downloaded backgrounds again
 ```sh
 $ python meeting-backgrounds.py remove --app msteams --bg bbc_joy_of_sets
 ```
 TIP: You can remove all collections by leaving out `--bg`.
 
-Open the folder containing downloaded backgrounds:
+#### Open the folder containing downloaded backgrounds
 ```sh
 $ python meeting-backgrounds.py open --app msteams
 ```
