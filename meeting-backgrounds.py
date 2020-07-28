@@ -93,6 +93,7 @@ def cli_open(args):
         sys.exit(1)
     open_folder(bg_dir)
 
+
 def cli_remove(args):
     count = 0
     for app_name in args.app:
@@ -131,15 +132,16 @@ def get_bg_thumb_path(app_name: str, bg_name: str, url: str):
     bg_dir = get_bg_dir(app_name)
     filename = get_bg_filename(bg_name, url)
     app = apps[app_name]
-    thumb_path = app.get('bg_path_pattern') # type: str
+    thumb_path = app.get("bg_path_pattern")  # type: str
     if thumb_path is None:
         return None
-    thumb_path = thumb_path.replace('${BG_DIR}', bg_dir)
+    thumb_path = thumb_path.replace("${BG_DIR}", bg_dir)
     stem, ext = os.path.splitext(filename)
     ext = ext[1:]
-    thumb_path = thumb_path.replace('${STEM}', stem)
-    thumb_path = thumb_path.replace('${EXT}', ext)
+    thumb_path = thumb_path.replace("${STEM}", stem)
+    thumb_path = thumb_path.replace("${EXT}", ext)
     return thumb_path
+
 
 def open_folder(path):
     # https://stackoverflow.com/a/16204023
@@ -182,7 +184,9 @@ def main(argv):
         help="Download backgrounds even if already downloaded",
     )
 
-    open_parser = subparsers.add_parser("open", help="Open meeting app folder with backgrounds")
+    open_parser = subparsers.add_parser(
+        "open", help="Open meeting app folder with backgrounds"
+    )
     open_parser.set_defaults(func=cli_open)
     open_parser.add_argument(
         "--app",
