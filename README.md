@@ -76,7 +76,7 @@ Command Line | Title | Backgrounds
 - Operating systems:
   - ✔️ Windows
   - ✔️ macOS (untested)
-  - ❌ Linux
+  - ✔️ Linux (untested)
 - Gotchas:
   - Zoom must not be running when downloading or removing backgrounds.
 
