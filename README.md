@@ -11,6 +11,8 @@ git clone https://github.com/letmaik/meeting-backgrounds
 cd meeting-backgrounds
 ```
 
+TIP: If you are on Windows, you can also use WSL.
+
 #### List available background collections
 ```sh
 $ python meeting-backgrounds.py list
