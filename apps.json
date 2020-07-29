@@ -2,16 +2,18 @@
     "msteams": {
         "bg_dir": {
             "Windows": "${APPDATA}/Microsoft/Teams/Backgrounds/Uploads",
-            "Darwin": "/users/${USER}/Library/Application Support/Microsoft/Teams/Backgrounds/Uploads"
+            "Darwin": "/Users/${USER}/Library/Application Support/Microsoft/Teams/Backgrounds/Uploads"
         },
         "bg_thumb_pattern": "${BG_DIR}/${STEM}_thumb.${EXT}"
     },
     "zoom": {
         "bg_dir": {
-            "Windows": "${APPDATA}/Zoom/data/VirtualBkgnd_Custom"
+            "Windows": "${APPDATA}/Zoom/data/VirtualBkgnd_Custom",
+            "Darwin": "/Users/${USER}/Library/Application Support/zoom.us/data/VirtualBkgnd_Custom"
         },
         "zoom_db": {
-            "Windows": "${APPDATA}/Zoom/data/zoomus.db"
+            "Windows": "${APPDATA}/Zoom/data/zoomus.db",
+            "Darwin": "/Users/${USER}/Library/Application Support/zoom.us/data/zoomus.db"
         }
     }
 }

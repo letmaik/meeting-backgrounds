@@ -73,7 +73,7 @@ Command Line | Title | Backgrounds
 - Command line: `--app zoom`
 - Operating systems:
   - ✔️ Windows
-  - ❌ macOS
+  - ✔️ macOS (untested)
   - ❌ Linux
 - Gotchas:
   - Zoom must not be running when downloading or removing backgrounds.
