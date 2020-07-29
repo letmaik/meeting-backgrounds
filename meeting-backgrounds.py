@@ -5,6 +5,7 @@ import urllib.request
 import platform
 import subprocess
 import sqlite3
+from functools import lru_cache as cached
 import argparse
 
 try:
@@ -65,7 +66,9 @@ def cli_list(args):
 def cli_download(args):
     for app_name in args.app:
         bg_dir = get_bg_dir(app_name)
-        os.makedirs(bg_dir, exist_ok=True)
+        if not os.path.exists(bg_dir):
+            # Teams may not have the "Uploads" subfolder yet.
+            os.mkdir(bg_dir)
 
     count = 0
     for bg_name in args.bg:
@@ -82,7 +85,7 @@ def cli_download(args):
                 continue
             print(f"Downloading {url}")
             request = urllib.request.Request(url, headers={
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0'
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0"
             })
             with urllib.request.urlopen(request) as r:
                 img = r.read()
@@ -92,6 +95,7 @@ def cli_download(args):
                     f.write(img)
                 zoom_db_path = get_zoom_db_path(app_name)
                 if zoom_db_path is not None:
+                    print(f"Updating {zoom_db_path}")
                     update_zoom_db(zoom_db_path, path, action='add')
             count += 1
     print(f"{count} backgrounds downloaded.")
@@ -102,6 +106,9 @@ def cli_open(args):
     if not os.path.exists(bg_dir):
         print(f"Folder does not exist: {bg_dir}")
         sys.exit(1)
+    if "zoom_db" in apps[args.app]:
+        print("WARNING: Do not add/remove images directly. "
+              "Zoom stores image metadata in a database which must be kept in sync.")
     open_folder(bg_dir)
 
 
@@ -118,24 +125,24 @@ def cli_remove(args):
                 if os.path.exists(path):
                     print(f"Removing {path}")
                     if zoom_db_path is not None:
+                        print(f"Updating {zoom_db_path}")
                         update_zoom_db(zoom_db_path, path, action='remove')
                     os.remove(path)
                     # Thumbs are automatically created by the meeting app.
                     path_thumb = get_bg_thumb_path(app_name, bg_name, url)
                     if path_thumb is not None and os.path.exists(path_thumb):
+                        print(f"Removing {path_thumb}")
                         os.remove(path_thumb)
                     count += 1
     print(f"{count} backgrounds removed.")
 
 
+@cached()
 def get_bg_dir(app_name: str) -> str:
     app = apps[app_name]
-    bg_dir = app["bg_dir"].get(platform.system())
-    if bg_dir is None and is_wsl():
-        bg_dir = app["bg_dir"].get("Windows")
-    if bg_dir is None:
-        raise RuntimeError(f'Your operating system is not supported for "{app_name}".')
-    bg_dir = os.path.expandvars(bg_dir)
+    # Note that only the parent folder must exist.
+    # See `cli_download()` for creation of the subfolder if necessary.
+    bg_dir = get_platform_path(app["bg_dir"], is_file=False)
     return bg_dir
 
 
@@ -159,17 +166,13 @@ def get_bg_thumb_path(app_name: str, bg_name: str, url: str):
     return thumb_path
 
 
+@cached()
 def get_zoom_db_path(app_name):
     app = apps[app_name]
     db = app.get("zoom_db")
     if db is None:
         return None
-    db_path = db.get(platform.system())
-    if db_path is None and is_wsl():
-        db_path = db.get("Windows")
-    if db_path is None:
-        raise RuntimeError(f'Your operating system is not supported for "{app_name}".')
-    db_path = os.path.expandvars(db_path)
+    db_path = get_platform_path(db, is_file=True)
     return db_path
 
 
@@ -206,6 +209,34 @@ def open_folder(path):
                 raise
             path = subprocess.check_output(["wslpath", "-w", path]).decode("utf-8").strip()
             subprocess.Popen(["explorer.exe", path])
+
+
+def get_platform_path(d: dict, is_file: bool) -> str:
+    unsupported_os = True
+    paths_tried = []
+    path = d.get(platform.system())
+    if path is not None:
+        unsupported_os = False
+        path = os.path.expandvars(path)
+        paths_tried.append(path)
+        if (is_file and not os.path.exists(path)) or \
+           (not is_file and not os.path.exists(os.path.join(path, os.pardir))):
+            path = None
+    if path is None and is_wsl():
+        path = d.get('Windows')
+        if path is not None:
+            unsupported_os = False
+            path = os.path.expandvars(path)
+            paths_tried.append(path)
+            if (is_file and not os.path.exists(path)) or \
+               (not is_file and not os.path.exists(os.path.join(path, os.pardir))):
+                path = None
+    if path is None:
+        if unsupported_os:
+            raise RuntimeError(f'Operating system not supported for the specified app')
+        else:
+            raise RuntimeError(f'Folder/file not found for the specified app, tried: {paths_tried}')
+    return path
 
 
 def is_wsl():
