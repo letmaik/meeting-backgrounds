@@ -472,5 +472,22 @@
             "https://cdn.spacetelescope.org/archives/images/wallpaper4/opo9935d.jpg",
             "https://cdn.spacetelescope.org/archives/images/wallpaper4/opo9828c.jpg"
         ]
+    },
+    "iwm": {
+        "title": "Imperial War Museum Wallpapers",
+        "url": "https://www.iwm.org.uk/history/download-a-video-call-background",
+        "image_urls": [
+            "http://www.iwm.org.uk/sites/default/files/2020-05/iwm_site_cwr_000180.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/cockpit-of-the-b-29.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/iwm_site_lam_003473.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/1940s-house.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/boiler_015.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/london-hms-belfast.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/cockpit-of-a-p-47-thunderbolt.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/monty-caravan.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/monty-caravan-2.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/b-24-liberators.jpg",
+            "http://www.iwm.org.uk/sites/default/files/2020-05/iwm-london-external.jpg"
+        ]
     }
 }
