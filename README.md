@@ -56,6 +56,7 @@ Command Line | Title | Backgrounds
 `--bg starbucks` | [Starbucks](https://stories.starbucks.com/stories/2020/you-can-still-work-from-starbucks-with-virtual-backgrounds/) | 12
 `--bg westelm` | [West Elm](https://blog.westelm.com/2020/03/18/download-these-video-conference-backgrounds-will-let-you-dial-in-from-your-dream-home/) | 34
 `--bg hubble` | [Hubble Wallpapers](https://www.spacetelescope.org/images/archive/search/?ranking=80&type=Observation&minimum_size=4&wallpapers=on&sort=-release_date) | 209
+`--bg iwm` | [Imperial War Museum](https://www.iwm.org.uk/history/download-a-video-call-background) | 11
 
 ## Supported apps
 
